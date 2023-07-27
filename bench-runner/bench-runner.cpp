@@ -82,7 +82,7 @@ int main(int argc, char** argv)
 
 
   if( self_timing ){
-    asm volatile ("rdcycle %0" : "=r" (cycles1));
+    asm volatile ("rdtime %0" : "=r" (cycles1));
   }
   if(SCRATCHPAD_PHYS)
     enclave.init(eapp_file, rt_file , params, 0x0A000000);
@@ -90,7 +90,7 @@ int main(int argc, char** argv)
     enclave.init(eapp_file, rt_file , params);
 
   if( self_timing ){
-    asm volatile ("rdcycle %0" : "=r" (cycles2));
+    asm volatile ("rdtime %0" : "=r" (cycles2));
   }
 
   enclave.registerOcallDispatch(incoming_call_dispatch);
@@ -105,14 +105,14 @@ int main(int argc, char** argv)
 
 
   if( self_timing ){
-    asm volatile ("rdcycle %0" : "=r" (cycles3));
+    asm volatile ("rdtime %0" : "=r" (cycles3));
   }
 
   if( !load_only )
     enclave.run();
 
   if( self_timing ){
-    asm volatile ("rdcycle %0" : "=r" (cycles4));
+    asm volatile ("rdtime %0" : "=r" (cycles4));
     printf("[keystone-bench] Init: %lu cycles\r\n", cycles2-cycles1);
     printf("[keystone-bench] Runtime: %lu cycles\r\n", cycles4-cycles3);
   }
