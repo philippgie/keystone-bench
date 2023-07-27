@@ -27,7 +27,7 @@ cp test_config.sh ${STAGING_OUTPUT_DIR}
 KEYSTONE_BINS=" ${EYRIE_FULL_SUPPORT_NAME}"
 
 for bin in $KEYSTONE_BINS; do
-    cp ${KEYSTONE_BINS_DIR}/${bin} ${STAGING_OUTPUT_DIR}
+    cp ${bin} ${STAGING_OUTPUT_DIR}
 done
 
 cp bench-runner/bench-runner.riscv ${STAGING_OUTPUT_DIR}
