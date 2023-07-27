@@ -1,6 +1,6 @@
 # Test directory names
-TEST_FRAMEWORKS="rv8-bench coremark"
-#torch beebs iozone"
+TEST_FRAMEWORKS="rv8-bench coremark iozone"
+#torch beebs"
 
 # Which things to run
 RUN_KEYSTONE=1
