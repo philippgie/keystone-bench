@@ -1,7 +1,7 @@
 .PHONY: all bench-runner coremark rv8-bench eyrie-rt
 
 all: bench-runner coremark rv8-bench eyrie-rt
-	grep -rl "rdcycle" . | xargs sed -i 's/rdcycle/rdtime/g'
+	grep -rl "rdtime" . | xargs sed -i 's/rdtime/rdtime/g'
 	rm -rf staging
 	./copy_all_tests.sh
 
